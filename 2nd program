@@ -1,0 +1,52 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <string>
+using namespace std;
+class Employee {
+private:
+    int employeeID;
+    string name;
+    string position;
+    double salary;
+public:
+    Employee(int id, string empName, string empPosition, double empSalary) {
+        employeeID = id;
+        name = empName;
+        position = empPosition;
+        salary = empSalary;
+    }
+    void display() {
+        cout << "Employee ID: " << employeeID << endl;
+        cout << "Name: " << name << endl;
+        cout << "Position: " << position << endl;
+        cout << "Salary: $" << salary << endl;
+    }
+    void updateEmployee(double newSalary) {
+        salary = newSalary;
+        cout << "Salary updated successfully!" << endl;
+    }
+    void updateEmployee(string newPosition) {
+        position = newPosition;
+        cout << "Position updated successfully!" << endl;
+    }
+    void updateEmployee(string newPosition, double newSalary) {
+        position = newPosition;
+        salary = newSalary;
+        cout << "Position and Salary updated successfully!" << endl;
+    }
+};
+int main() {
+    Employee emp(101, "John Doe", "Software Engineer", 60000);
+    cout << "Initial Employee Details:" << endl;
+    emp.display();
+    cout << "\nUpdating Salary...\n";
+    emp.updateEmployee(65000);
+    emp.display();
+    cout << "\nUpdating Position...\n";
+    emp.updateEmployee("Senior Software Engineer");
+    emp.display();
+    cout << "\nUpdating Position and Salary...\n";
+    emp.updateEmployee("Team Lead", 80000);
+    emp.display();
+    return 0;
+}
