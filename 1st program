@@ -1,0 +1,54 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <string>
+using namespace std;
+class GamingAccount {
+private:
+    string player_name;
+    int level;
+    int experience_points;
+public:
+    GamingAccount() {
+        player_name = "Player";
+        level = 1;
+        experience_points = 0;
+}
+    GamingAccount(string name, int initial_level, int initial_experience) {
+        player_name = name;
+        level = initial_level;
+        experience_points = initial_experience;
+    }
+    void gainExperience(int points) {
+        experience_points += points;
+        while (experience_points >= level * 100) {
+            experience_points -= level * 100;
+            level++;
+        }
+    }
+    }
+    void showStats() {
+        cout << "Player Name: " << player_name << endl;
+        cout << "Level: " << level << endl;
+        cout << "Experience: " << experience_points << endl;
+    }
+int main() {
+    GamingAccount player1;
+    GamingAccount player2("Alice", 2, 150);
+    cout << "Player 1 Stats:" << endl;
+    player1.showStats();
+    cout << endl;
+    cout << "Player 2 Stats:" << endl;
+    player2.showStats();
+    cout << endl;
+    player1.gainExperience(250);
+    cout << "After gaining experience, Player 1 Stats:" << endl;
+    player1.showStats();
+    cout << endl;
+    if (player1 > player2) {
+        cout << "Player 1 has more experience than Player 2!" << endl;
+    } else {
+        cout << "Player 2 has more experience than Player 1!" << endl;
+    }
+
+    return 0;
+}   
